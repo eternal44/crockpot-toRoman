@@ -1,4 +1,6 @@
 function decimalToRoman (num) {
+  if(isNaN(num) || num === null) return null
+
   var numeral_map = {
     ones: ['I', 'V', 'X'],
     tens: ['X', 'L', 'C'],
@@ -28,24 +30,24 @@ function decimalToRoman (num) {
     var med = numeral_map[place][1]
     var big = numeral_map[place][2]
 
-    result = ''
+    var result = ''
 
     if(num < 4){
-      result = copyString(small, num)
+      result = multiplyString(small, num)
     } else if(num == 4) {
-      result = small + med
+      result += small + med
     } else if (num == 5) {
-      result = med
+      result += med
     } else if (num > 5 && num < 9) {
-      med + copyString(small, num - 5)
+      result += med + multiplyString(small, num - 5)
     } else if (num == 9) {
-      small + big
+      result += small + big
     }
 
     return result
   }
 
-  function copyString(str, num) {
+  function multiplyString(str, num) {
     var result = ''
 
     for (var i = 0; i < num; i++) {
@@ -54,7 +56,6 @@ function decimalToRoman (num) {
 
     return result
   }
-
 
   return toRoman(num)
 }
