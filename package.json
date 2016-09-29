@@ -1,5 +1,5 @@
 {
-  "name": "crockpot-to_roman",
+  "name": "crockpot-toRoman",
   "version": "0.0.1",
   "description": "Convert decimal numbers to ruman numerals",
   "main": "index.js",
